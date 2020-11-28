@@ -59,8 +59,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-| purchase     | reference | null: false |
-| postal_code  | integer   | null: false |
+| purchase     | reference | null: false, foreign_key: true |
+| postal_code  | string    | null: false |
 | prefecture   | string    | null: false |
 | city         | string    | null: false |
 | address      | string    | null: false |
