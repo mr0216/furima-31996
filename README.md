@@ -4,15 +4,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-| nickname       | string  | null: false |
-| email          | string  | null: false |
-| password       | string  | null: false |
-| last_name      | string  | null: false |
-| first_name     | string  | null: false |
-| birthday_year  | integer | null: false |
-| birthday_month | integer | null: false |
-| birthday_day   | integer | null: false |
-
+| nickname   | string | null: false |
+| email      | string | null: false |
+| encrypted_password | string | null: false |
+| last_name  | string | null: false |
+| first_name | string | null: false |
+| last_name(カタカナ) | string | null: false |
+| first_name(カタカナ) | string | null: false |
+| birthday   | date   | null: false |
 
 ### Association
 
@@ -26,17 +25,14 @@
 
 |Column                   |Type |Options|
 |------                   |---- |-------|
-| name                    | string       | null: false |
-| introduction            | text         | null: false |
-| price                   | integer      | null: false |
-| image                   | ActiveStorage|
-| category                | references   | null: false |
-| condition               | references   | null: false |
-| postage                 | references   | null: false |
-| shipping_area           | references   | null: false |
-| estimated_shipping_date | references   | null: false |
-| seller_id               | references   | null: false |
-| buyer_id                | references   | null: false |
+| name                    | string  | null: false |
+| introduction            | text    | null: false |
+| price                   | integer | null: false |
+| category                | integer | null: false |
+| condition               | integer | null: false |
+| postage                 | integer | null: false |
+| shipping_area           | integer | null: false |
+| estimated_shipping_date | integer | null: false |
 
 
 ### Association
@@ -51,14 +47,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-| user      | references | null: false |
-| item       | references | null: false |
-| purchase_date | references | null: false |
+| user  | references | null: false, foreign_key: true |
+| items | references | null: false, foreign_key: true |
+| date  | string     | null: false |
 
 
 ### Association
-c
-- belongs_to :item
+- belongs_to :user
 
 
 
@@ -66,16 +61,16 @@ c
 
 |Column|Type|Options|
 |------|----|-------|
-| user_id     | reference | null: false |
+| purchase    | reference | null: false |
 | postal_code | integer   | null: false |
 | prefecture  | string    | null: false |
 | city        | string    | null: false |
 | address     | string    | null: false |
-| building    | string    | null: false |
+| building    | string    |
 
 
 ### Association
-- belongs_to :user
+- belongs_to :purchase
 
 
 ## comments テーブル
