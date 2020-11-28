@@ -24,14 +24,15 @@
 
 |Column |Type |Options|
 |------ |---- |-------|
-| name                       | string  | null: false |
-| introduction               | text    | null: false |
-| price                      | integer | null: false |
-| category_id                | integer | null: false |
-| condition_id               | integer | null: false |
-| postage_id                 | integer | null: false |
-| shipping_area_id           | integer | null: false |
-| estimated_shipping_date_id | integer | null: false |
+| name                       | string     | null: false |
+| introduction               | text       | null: false |
+| price                      | integer    | null: false |
+| category_id                | integer    | null: false |
+| condition_id               | integer    | null: false |
+| postage_id                 | integer    | null: false |
+| shipping_area_id           | integer    | null: false |
+| estimated_shipping_date_id | integer    | null: false |
+| user_id                    | references | null: false, foreign_key: true|
 
 
 ### Association
@@ -45,8 +46,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-| user  | references | null: false, foreign_key: true |
-| items | references | null: false, foreign_key: true |
+| user | references | null: false, foreign_key: true |
+| item | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -55,17 +56,17 @@
 
 
 
-## addressテーブル
+## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-| purchase     | reference | null: false, foreign_key: true |
-| postal_code  | string    | null: false |
-| prefecture   | string    | null: false |
-| city         | string    | null: false |
-| address      | string    | null: false |
-| building     | string    |
-| phone_number | string    | null: false |
+| purchase      | reference | null: false, foreign_key: true |
+| postal_code   | string    | null: false |
+| prefecture_id | integer   | null: false |
+| city          | string    | null: false |
+| address       | string    | null: false |
+| building      | string    |
+| phone_number  | string    | null: false |
 
 
 ### Association
