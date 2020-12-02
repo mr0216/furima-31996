@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :estimated_shipping_date
+  
   validates :category_id, numericality: { other_than: 1 }
   validates :condition_id, numericality: { other_than: 1 }
   validates :postage_id, numericality: { other_than: 1 }
