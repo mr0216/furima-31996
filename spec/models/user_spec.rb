@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password は半角6文字英大文字・小文字・数字それぞれ１文字以上含む必要があります')
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''

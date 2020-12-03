@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :password, presence: true,
                        format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i,
-                                 message: 'は半角6文字英大文字・小文字・数字それぞれ１文字以上含む必要があります' }
+                                 message: 'Include both letters and numbers' }
 
   has_many :items
   has_many :purchases
