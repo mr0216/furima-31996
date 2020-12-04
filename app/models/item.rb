@@ -5,21 +5,21 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :estimated_shipping_date
-  
-  validates :category_id, numericality: { other_than: 1, 
-                                message: 'Select.'}
+
+  validates :category_id, numericality: { other_than: 1,
+                                          message: 'Select.' }
 
   validates :condition_id, numericality: { other_than: 1,
-                                message: 'Select.'}
+                                           message: 'Select.' }
 
   validates :postage_id, numericality: { other_than: 1,
-                              message: 'Select.'}
+                                         message: 'Select.' }
 
   validates :prefecture_id, numericality: { other_than: 1,
-                                message: 'Select.'}
+                                            message: 'Select.' }
 
   validates :estimated_shipping_date_id, numericality: { other_than: 1,
-                                              message: 'Select.'}
+                                                         message: 'Select.' }
 
   belongs_to :user
   has_one_attached :image
@@ -29,8 +29,8 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
 
-  validates :price, presence: true, numericality: { only_integer: true, greater_than: 300, less_than: 99999999, message: 'Out of setting range'}
-  
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 300, less_than: 99_999_999, message: 'Out of setting range' }
+
   validates :image, presence: true
 end
 
