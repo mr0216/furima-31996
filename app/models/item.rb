@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
 
-  validates :price, presence: true, numericality: { only_integer: true, greater_than: 299, less_than: 10000000, message: 'Out of setting range'}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, message: 'Out of setting range' }
   validates :image, presence: true
 end
 
