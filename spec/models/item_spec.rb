@@ -33,38 +33,43 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it 'カテゴリーが存在していないと保存されない' do
-      @item.category_id = '1'
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select.')
     end
     it '商品状態が存在していないと保存されない' do
-      @item.condition_id = '1'
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Condition Select.')
     end
     it '配送料の負担が存在していないと保存されない' do
-      @item.postage_id = '1'
+      @item.postage_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Postage Select.')
     end
     it '発送元の地域が存在していないと保存されない' do
-      @item.prefecture_id = '1'
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Prefecture Select.')
     end
     it '発送までの日数が存在していないと保存されない' do
-      @item.estimated_shipping_date_id = '1'
+      @item.estimated_shipping_date_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Estimated shipping date Select.')
     end
     # 価格の設定▼
     it '価格が¥300~¥9,999,999の範囲でないと保存されない' do
-      @item.price = '0'
+      @item.price = 299
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
+    end
+    it '価格が¥300~¥9,999,999の範囲でないと保存されない' do
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
     it '販売価格が半角数字ではないと保存されない' do
-      @item.price = '３００'
+      @item.price = "３００"
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
