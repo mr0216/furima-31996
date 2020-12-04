@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
   end
 
   describe '投稿が保存されないとき' do
-    # 投稿入力欄が空のとき▼
+    # 投稿入力欄が空のとき(nill)▼
     it '画像が存在していないと保存されない' do
       @item.image = nil
       @item.valid?
@@ -57,6 +57,34 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Estimated shipping date Select.')
     end
+    
+    # 投稿入力欄が空のとき(id=1)▼
+    it 'カテゴリーが存在していないと保存されない' do
+      @item.category_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Category Select.')
+    end
+    it '商品状態が存在していないと保存されない' do
+      @item.condition_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Condition Select.')
+    end
+    it '配送料の負担が存在していないと保存されない' do
+      @item.postage_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Postage Select.')
+    end
+    it '発送元の地域が存在していないと保存されない' do
+      @item.prefecture_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Prefecture Select.')
+    end
+    it '発送までの日数が存在していないと保存されない' do
+      @item.estimated_shipping_date_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Estimated shipping date Select.')
+    end
+
     # 価格の設定▼
     it '価格が¥300~¥9,999,999の範囲でないと保存されない' do
       @item.price = 299
