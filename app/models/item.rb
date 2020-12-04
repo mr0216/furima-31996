@@ -19,11 +19,14 @@ class Item < ApplicationRecord
   has_one :purchase
   has_many :comments
 
-  validates :name, presence: true
-  validates :introduction, presence: true
-
-  validates :price, presence: true, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, message: 'Out of setting range' }
-  validates :image, presence: true
+  with_options presence: true do
+    validates :name
+    validates :introduction
+    validates :image
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, 
+                                      message: 'Out of setting range' }
+  end
+  
 end
 
 # VALID_PRICEL_REGEX =  /\A[0-9]+\z/
