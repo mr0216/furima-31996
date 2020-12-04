@@ -23,10 +23,9 @@ class Item < ApplicationRecord
     validates :name
     validates :introduction
     validates :image
-    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, 
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000,
                                       message: 'Out of setting range' }
   end
-  
 end
 
 # VALID_PRICEL_REGEX =  /\A[0-9]+\z/
