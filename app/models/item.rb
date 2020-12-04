@@ -27,6 +27,3 @@ class Item < ApplicationRecord
                                       message: 'Out of setting range' }
   end
 end
-
-# VALID_PRICEL_REGEX =  /\A[0-9]+\z/
-# {with: /\A[0-9]+\z/, message: 'Half-width number'}

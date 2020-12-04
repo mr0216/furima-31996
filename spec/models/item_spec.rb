@@ -33,27 +33,27 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it 'カテゴリーが存在していないと保存されない' do
-      @item.category_id = 1
+      @item.category_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select.')
     end
     it '商品状態が存在していないと保存されない' do
-      @item.condition_id = 1
+      @item.condition_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('Condition Select.')
     end
     it '配送料の負担が存在していないと保存されない' do
-      @item.postage_id = 1
+      @item.postage_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('Postage Select.')
     end
     it '発送元の地域が存在していないと保存されない' do
-      @item.prefecture_id = 1
+      @item.prefecture_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('Prefecture Select.')
     end
     it '発送までの日数が存在していないと保存されない' do
-      @item.estimated_shipping_date_id = 1
+      @item.estimated_shipping_date_id = nil
       @item.valid?
       expect(@item.errors.full_messages).to include('Estimated shipping date Select.')
     end
