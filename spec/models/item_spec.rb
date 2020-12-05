@@ -57,7 +57,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Estimated shipping date Select.')
     end
-    
+
     # 投稿入力欄が空のとき(id=1)▼
     it 'カテゴリーが存在していないと保存されない' do
       @item.category_id = 1
