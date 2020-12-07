@@ -15,6 +15,6 @@ class User < ApplicationRecord
                                  message: 'Include both letters and numbers' }
 
   has_many :items
-  has_many :purchases
+  has_many :orders
   has_many :comments
 end
