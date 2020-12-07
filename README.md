@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchases
+- has_many :orders
 - has_many :comments
 
 
@@ -37,12 +37,12 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 - has_many :comments
 
 
 
-## purchasesテーブル
+## ordersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -60,7 +60,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-| purchase      | reference | null: false, foreign_key: true |
+| order         | reference | null: false, foreign_key: true |
 | postal_code   | string    | null: false |
 | prefecture_id | integer   | null: false |
 | city          | string    | null: false |
@@ -70,7 +70,7 @@
 
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
 
 
 ## comments テーブル
