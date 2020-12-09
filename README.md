@@ -17,7 +17,7 @@
 
 - has_many :items
 - has_many :orders
-- has_many :comments
+- has_one :address
 
 
 ## itemsテーブル
@@ -38,7 +38,7 @@
 ### Association
 - belongs_to :user
 - has_one :order
-- has_many :comments
+- has_one_attached :image
 
 
 
@@ -71,6 +71,7 @@
 
 ### Association
 - belongs_to :order
+- belongs_to :user
 
 
 ## comments テーブル
