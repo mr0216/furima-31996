@@ -13,7 +13,7 @@ RSpec.describe OrderAddress, type: :model do
       expect(@order_address).to be_valid
     end
   end
-  describe '購入ができきないとき' do
+  describe '購入ができないとき' do
     # 購入入力欄が空のとき(nill)▼
     it '郵便番号が空では購入できないこと' do
       @order_address.postal_code = ""
