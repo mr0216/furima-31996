@@ -74,6 +74,7 @@
 - belongs_to :user
 
 
+
 ## comments テーブル
 
 | Column     | Type       | Options     |
