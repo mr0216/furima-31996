@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :contributor_confirmation
   before_action :order_present_confirmation
 
-
   def index
     @order_address = OrderAddress.new
   end
@@ -23,15 +22,11 @@ class OrdersController < ApplicationController
   private
 
   def order_present_confirmation
-    if @item.order.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.order.present?
   end
 
   def contributor_confirmation
-    if @item.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user_id == current_user.id
   end
 
   def order_params
