@@ -57,6 +57,11 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Item can't be blank")
     end
+    it '都道府県の値が１では購入できないこと' do
+      @order_address.prefecture_id = 1
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Prefecture Select")
+    end
 
     # 指定の入力の値での入力確認▼
     it '郵便番号はハイフンが含まれないと購入できないこと' do
