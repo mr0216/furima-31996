@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
   before_action :contributor_confirmation
-  before_action :order_present_confirmation
 
   def index
     @order_address = OrderAddress.new
@@ -21,12 +20,10 @@ class OrdersController < ApplicationController
 
   private
 
-  def order_present_confirmation
-    redirect_to root_path if @item.order.present?
-  end
-
   def contributor_confirmation
-    redirect_to root_path if @item.user_id == current_user.id
+    if @item.user_id == current_user.id || @item.order.present?
+    redirect_to root_path
+    end
   end
 
   def order_params
