@@ -8,6 +8,7 @@ class OrderAddress
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :item_id
+    validates :user_id
     validates :token
   end
 
@@ -21,6 +22,6 @@ class OrderAddress
                    address: address,
                    building: building,
                    phone_number: phone_number,
-                   user_id: user_id)
+                   order_id: order.id)
   end
 end
